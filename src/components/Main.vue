@@ -26,7 +26,7 @@
           :src="require('@/assets/1.4.svg')"
           alt="Rasm tavsifi"
         />
-        <p>+998917987700</p>
+        <p>+998917987700</p> <!-- Telefon raqami -->
       </div>
 
       <div class="main__bottom-item">
@@ -39,14 +39,14 @@
           707
         </a>
       </div>
-
-      
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "Contact",
+};
 </script>
 
 <style scoped>
@@ -68,9 +68,11 @@ export default {};
 
 .main__bottom {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 200px dan kichik bo'lmagan elementlar */
-  gap: 20px; /* Elementlar orasidagi masofa */
-  width: 100%;
+  grid-template-columns: repeat(3, 1fr); /* 3 ta ustunli grid */
+  gap: 30px; /* Elementlar orasidagi masofa */
+  width: 80%; /* Karta kengligi */
+  max-width: 1200px; /* Maksimal kenglik */
+  margin: 0 auto; /* O'rtaga joylashtirish */
 }
 
 .main__bottom-item {
@@ -82,8 +84,9 @@ export default {};
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 20px;
+  padding: 40px; /* Karta ichki masofa */
   transition: transform 0.3s ease;
+  height: 200px; /* Karta balandligi */
 }
 
 .main__bottom-item:hover {
@@ -91,9 +94,9 @@ export default {};
 }
 
 .main__bottom-img {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 10px;
+  width: 70px; /* Kattaroq tasvir */
+  height: 70px;
+  margin-bottom: 15px;
   transition: transform 0.3s ease;
 }
 
@@ -101,25 +104,59 @@ export default {};
   transform: scale(1.2);
 }
 
-.main__button {
-  height: 50px;
-  background-color: blue;
-  color: white;
-  border-radius: 15px;
-  width: 100px;
-  border: 1px solid blue;
-  transition: 0.2s;
-}
-
-.main__button:hover {
-  background-color: black;
-  box-shadow: 10px 10px 10px 10px;
-  border: 1px solid black;
-}
-
 .main__text {
   color: purple;
   margin-top: 10px;
+  font-size: 18px; /* Katta matn */
+}
+
+/* Media query - Desktop versiyasi */
+@media (min-width: 1024px) {
+  .main__bottom {
+    grid-template-columns: repeat(3, 1fr); /* 3 ta ustunli grid */
+  }
+
+  .main__bottom-item {
+    padding: 50px; /* Kartalar orasidagi bo'shliq va kattalik */
+    box-shadow: 15px 5px 40px rgba(0, 0, 0, 0.2);
+    height: 250px; /* Katta balandlik */
+  }
+
+  .main__bottom-img {
+    width: 90px; /* Tasvirlarni kattalashtirish */
+    height: 90px;
+  }
+
+  .main__title {
+    font-size: 48px; /* Katta ekran uchun sarlavha o'lchamini kattalashtirish */
+  }
+}
+
+/* Media query - mobil versiya */
+@media (max-width: 768px) {
+  .main__bottom {
+    grid-template-columns: repeat(1, 1fr); /* Mobilda bitta ustun */
+    gap: 20px; /* Elementlar orasidagi bo'shliq */
+    width: 90%; /* Kenglikni biroz kichiklashtirish */
+  }
+
+  .main__bottom-item {
+    padding: 30px; /* Mobilda kichikroq kartalar */
+    height: 180px; /* Kartalar balandligini kichiklashtirish */
+  }
+
+  .main__bottom-img {
+    width: 60px; /* Tasvirlarni kichikroq qilish */
+    height: 60px;
+  }
+
+  .main__title {
+    font-size: 30px; /* Mobilda kichikroq sarlavha */
+  }
+
+  /* Telefon raqami kartasi o‘lchamini kichiklashtirish */
+  .main__bottom-item p {
+    font-size: 16px;
+  }
 }
 </style>
-
